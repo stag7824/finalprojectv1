@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:finalprojectv1/screens/Quiz/models/question.dart';
-import 'package:finalprojectv1/screens/Quiz/models/quiz.dart';
+import '../models/question.dart';
+import '../models/quiz.dart';
 
 typedef OnQuizNext = void Function(Question question);
 typedef OnQuizCompleted = void Function(

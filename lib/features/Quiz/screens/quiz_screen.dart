@@ -1,34 +1,28 @@
 import 'dart:async';
 
-import 'package:finalprojectv1/Screens/Quiz/common/extensions.dart';
-import 'package:finalprojectv1/Screens/Quiz/models/quiz_history.dart';
-import 'package:finalprojectv1/screens/Quiz/common/theme_helper.dart';
-import 'package:finalprojectv1/screens/Quiz/models/dto/option_selection.dart';
-import 'package:finalprojectv1/screens/Quiz/models/dto/quiz_result.dart';
-import 'package:finalprojectv1/screens/Quiz/models/option.dart';
-import 'package:finalprojectv1/screens/Quiz/models/question.dart';
-import 'package:finalprojectv1/screens/Quiz/models/quiz.dart';
-import 'package:finalprojectv1/screens/Quiz/quiz_result_screen.dart';
-import 'package:finalprojectv1/screens/Quiz/services/quiz_engine.dart';
-import 'package:finalprojectv1/screens/Quiz/stores/quiz_store.dart';
-import 'package:finalprojectv1/screens/Quiz/widgets/disco_button.dart';
-import 'package:finalprojectv1/screens/Quiz/widgets/question_option.dart';
-import 'package:finalprojectv1/screens/Quiz/widgets/time_indicator.dart';
+import 'package:finalprojectv1/features/Quiz/common/extensions.dart';
+import 'package:finalprojectv1/features/Quiz/screens/quiz_result_screen.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_quiz_app/common/extensions.dart';
-// import 'package:flutter_quiz_app/common/theme_helper.dart';
-// import 'package:flutter_quiz_app/models/dto/option_selection.dart';
-// import 'package:flutter_quiz_app/models/dto/quiz_result.dart';
-// import 'package:flutter_quiz_app/models/option.dart';
-// import 'package:flutter_quiz_app/models/question.dart';
-// import 'package:flutter_quiz_app/models/quiz.dart';
-// import 'package:flutter_quiz_app/models/quiz_history.dart';
-// import 'package:flutter_quiz_app/screens/quiz_result_screen.dart';
-// import 'package:flutter_quiz_app/services/quiz_engine.dart';
-// import 'package:flutter_quiz_app/stores/quiz_store.dart';
-// import 'package:flutter_quiz_app/widgets/disco_button.dart';
-// import 'package:flutter_quiz_app/widgets/question_option.dart';
-// import 'package:flutter_quiz_app/widgets/time_indicator.dart';
+import 'package:finalprojectv1/features/Quiz/screens/quiz_category_details.dart';
+import 'package:flutter/material.dart';
+import '../common/alert_util.dart';
+import '../common/theme_helper.dart';
+import '../models/category.dart';
+import '../models/dto/option_selection.dart';
+import '../models/dto/quiz_result.dart';
+import '../models/option.dart';
+import '../models/question.dart';
+import '../models/quiz.dart';
+import '../models/quiz_history.dart';
+import '../services/quiz_engine.dart';
+import '../stores/quiz_store.dart';
+import '../widgets/disco_button.dart';
+import '../widgets/question_option.dart';
+import '../widgets/screen_header.dart';
+import '../widgets/time_indicator.dart';
+import 'quiz_category.dart';
+import 'quiz_history_screen.dart';
+import 'quiz_screen.dart';
 
 class QuizScreen extends StatefulWidget {
   static const routeName = '/quiz';
@@ -74,7 +68,7 @@ class _QuizScreenState extends State<QuizScreen> with WidgetsBindingObserver {
       progressTimer!.cancel();
     }
     engine.stop();
-    WidgetsBinding.instance.removeObserver(this);
+    WidgetsBinding.instance!.removeObserver(this);
     super.dispose();
   }
 

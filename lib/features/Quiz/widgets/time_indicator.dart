@@ -1,4 +1,4 @@
-import 'package:finalprojectv1/Screens/Quiz/common/theme_helper.dart';
+import 'package:finalprojectv1/features/Quiz/common/theme_helper.dart';
 import 'package:flutter/material.dart';
 
 class TimeIndicator extends StatelessWidget {

@@ -1,23 +1,21 @@
-import 'package:finalprojectv1/Screens/Quiz/models/category.dart';
-import 'package:finalprojectv1/screens/Quiz/quiz_home_screen.dart';
-import 'package:finalprojectv1/screens/Quiz/models/dto/quiz_result.dart';
-import 'package:finalprojectv1/screens/Quiz/models/quiz.dart';
+import 'package:finalprojectv1/Features/Quiz/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import '../quiz_category.dart';
-import '../quiz_category_details.dart';
-import '../quiz_history_screen.dart';
-import '../quiz_result_screen.dart';
-import '../quiz_screen.dart';
-// import '../splash_screen.dart';
 
-import '../quiz_screen.dart';
+import '../models/category.dart';
+import '../models/dto/quiz_result.dart';
+import '../models/quiz.dart';
+import '../screens/quiz_category.dart';
+import '../screens/quiz_category_details.dart';
+import '../screens/quiz_history_screen.dart';
+import '../screens/quiz_result_screen.dart';
+import '../screens/quiz_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
     switch (settings.name) {
-      case QuizHomeScreen.routeName:
-        return MaterialPageRoute(builder: (_) => QuizHomeScreen());
+      case HomeScreen.routeName:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       case QuizScreen.routeName:
         if (args is Quiz) {
           return MaterialPageRoute(
@@ -33,9 +31,9 @@ class RouteGenerator {
         }
         return _errorRoute();
       case QuizCategoryScreen.routeName:
-        return MaterialPageRoute(builder: (_) => QuizCategoryScreen());
+        return MaterialPageRoute(builder: (_) => const QuizCategoryScreen());
       case QuizHistoryScreen.routeName:
-        return MaterialPageRoute(builder: (_) => QuizHistoryScreen());
+        return MaterialPageRoute(builder: (_) => const QuizHistoryScreen());
       case QuizCategoryDetailsScreen.routeName:
         if (args is Category) {
           return MaterialPageRoute(
@@ -53,9 +51,9 @@ class RouteGenerator {
     return MaterialPageRoute(builder: (_) {
       return Scaffold(
         appBar: AppBar(
-          title: Text('Error'),
+          title: const Text('Error'),
         ),
-        body: Center(
+        body: const Center(
           child: Text(
             'ERROR: Please try again.',
             style: TextStyle(fontSize: 32),

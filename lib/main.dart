@@ -1,17 +1,11 @@
-// ignore_for_file: library_private_types_in_public_api
-
-import 'package:finalprojectv1/screens/Login/loginscreen.dart';
-import 'package:finalprojectv1/screens/Quiz/common/route_generator.dart';
-import 'package:finalprojectv1/screens/Quiz/models/category.dart';
-import 'package:finalprojectv1/screens/Quiz/models/quiz.dart';
-import 'package:finalprojectv1/screens/Quiz/quiz_category.dart';
-import 'package:finalprojectv1/screens/Quiz/quiz_home_screen.dart';
-import 'package:finalprojectv1/screens/Quiz/quiz_screen.dart';
-import 'package:finalprojectv1/screens/Quiz/stores/quiz_store.dart';
-import 'package:finalprojectv1/screens/onBoard/onboard.dart';
+import 'package:finalprojectv1/features/Login/loginscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'Features/onBoard/onboard.dart';
+import 'features/Quiz/common/route_generator.dart';
+import 'features/Quiz/stores/quiz_store.dart';
 
 int? isviewed;
 void main() async {
@@ -39,10 +33,11 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // primarySwatch: Colors.purple,
+        primarySwatch: Colors.purple,
       ),
       initialRoute: "/",
-      // home: isviewed != 0 ? OnBoard() : QuizScreen(),
+      home: isviewed != 0 ? OnBoard() : const LoginScreen(),
       onGenerateRoute: RouteGenerator.generateRoute,
     );
   }

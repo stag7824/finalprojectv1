@@ -1,6 +1,6 @@
 import 'package:finalprojectv1/constant.dart';
-import 'package:finalprojectv1/screens/Login/loginscreen.dart';
-import 'package:finalprojectv1/screens/onBoard/onboard_model.dart';
+import 'package:finalprojectv1/features/Login/loginscreen.dart';
+import 'package:finalprojectv1/features/onBoard/onboard_model.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

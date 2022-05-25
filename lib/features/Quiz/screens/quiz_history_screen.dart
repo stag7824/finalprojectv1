@@ -1,10 +1,16 @@
-import 'package:finalprojectv1/screens/Quiz/common/theme_helper.dart';
-import 'package:finalprojectv1/screens/Quiz/models/quiz_history.dart';
-import 'package:finalprojectv1/screens/Quiz/quiz_screen.dart';
-import 'package:finalprojectv1/screens/Quiz/stores/quiz_store.dart';
-import 'package:finalprojectv1/screens/Quiz/widgets/disco_button.dart';
-import 'package:finalprojectv1/screens/Quiz/widgets/screen_header.dart';
 import 'package:flutter/material.dart';
+import 'package:finalprojectv1/features/Quiz/screens/quiz_category_details.dart';
+import 'package:flutter/material.dart';
+import '../common/alert_util.dart';
+import '../common/theme_helper.dart';
+import '../models/category.dart';
+import '../models/quiz_history.dart';
+import '../stores/quiz_store.dart';
+import '../widgets/disco_button.dart';
+import '../widgets/screen_header.dart';
+import 'quiz_category.dart';
+import 'quiz_history_screen.dart';
+import 'quiz_screen.dart';
 
 class QuizHistoryScreen extends StatefulWidget {
   static const routeName = '/quizHistory';
@@ -23,7 +29,7 @@ class _QuizHistoryScreenState extends State<QuizHistoryScreen> {
     store = QuizStore();
     store.loadQuizHistoryAsync().then((value) {
       setState(() {
-        quizHistoryList = value.cast<QuizHistory>();
+        quizHistoryList = value;
       });
     });
     super.initState();

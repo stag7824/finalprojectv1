@@ -1,24 +1,24 @@
 import 'dart:io';
 
-import 'package:finalprojectv1/Screens/Quiz/common/alert_util.dart';
-import 'package:finalprojectv1/Screens/Quiz/stores/quiz_store.dart';
-import 'package:finalprojectv1/Screens/Quiz/widgets/disco_button.dart';
-import 'package:finalprojectv1/screens/Quiz/common/theme_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../common/alert_util.dart';
+import '../common/theme_helper.dart';
+import '../stores/quiz_store.dart';
+import '../widgets/disco_button.dart';
 import 'quiz_category.dart';
 import 'quiz_history_screen.dart';
 import 'quiz_screen.dart';
 
-class QuizHomeScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   static const routeName = '/';
-  const QuizHomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
   @override
-  _QuizHomeScreenState createState() => _QuizHomeScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _QuizHomeScreenState extends State<QuizHomeScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   final QuizStore _quizStore = QuizStore();
 
@@ -38,7 +38,7 @@ class _QuizHomeScreenState extends State<QuizHomeScreen> {
                 children: [
                   headerText("Quiz App"),
                   SizedBox(height: 30),
-                  ...QuizhomeScreenButtons(context),
+                  ...homeScreenButtons(context),
                 ],
               ),
             ],
@@ -74,15 +74,14 @@ class _QuizHomeScreenState extends State<QuizHomeScreen> {
           ListTile(
             title: const Text('Home'),
             onTap: () {
-              Navigator.pushReplacementNamed(context, QuizHomeScreen.routeName);
+              Navigator.pushReplacementNamed(context, HomeScreen.routeName);
             },
           ),
           ListTile(
             title: const Text('Start Quiz'),
             onTap: () async {
               var quiz = await _quizStore.getRandomQuizAsync();
-              Navigator.pushNamed(context, QuizScreen.routeName,
-                  arguments: quiz);
+              Navigator.pushNamed(context, "/quiz", arguments: quiz);
             },
           ),
           ListTile(
@@ -154,7 +153,7 @@ class _QuizHomeScreenState extends State<QuizHomeScreen> {
     );
   }
 
-  List<Widget> QuizhomeScreenButtons(BuildContext context) {
+  List<Widget> homeScreenButtons(BuildContext context) {
     return [
       DiscoButton(
         onPressed: () async {

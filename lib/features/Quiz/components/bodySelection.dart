@@ -1,13 +1,12 @@
+import 'package:finalprojectv1/Features/Quiz/screens/quiz_history_screen.dart';
 import 'package:finalprojectv1/components/rounded_button.dart';
-import 'package:finalprojectv1/components/rounded_input_field.dart';
-import 'package:finalprojectv1/components/rounded_password_field.dart';
-import 'package:finalprojectv1/screens/Login/components/background.dart';
-import 'package:finalprojectv1/screens/Quiz/quiz_category.dart';
+import 'package:finalprojectv1/features/Login/components/background.dart';
+import 'package:finalprojectv1/features/Quiz/screens/quiz_category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class Body extends StatelessWidget {
-  const Body({
+class BodySelection extends StatelessWidget {
+  const BodySelection({
     Key? key,
   }) : super(key: key);
 
@@ -20,7 +19,7 @@ class Body extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              "LOGIN",
+              "Quiz",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             SizedBox(height: size.height * 0.03),
@@ -29,21 +28,24 @@ class Body extends StatelessWidget {
               height: size.height * 0.35,
             ),
             SizedBox(height: size.height * 0.03),
-            RoundedInputField(
-              hintText: "Your Email",
-              onChanged: (value) {},
-            ),
-            RoundedPasswordField(
-              onChanged: (value) {},
-              isHiddenPassword: true,
-            ),
             RoundedButton(
-              text: "LOGIN",
+              text: "Take Quiz",
               press: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => QuizCategoryScreen(),
+                    builder: (context) => const QuizCategoryScreen(),
+                  ),
+                );
+              },
+            ),
+            RoundedButton(
+              text: "History",
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const QuizHistoryScreen(),
                   ),
                 );
               },

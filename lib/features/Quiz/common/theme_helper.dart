@@ -1,7 +1,8 @@
+import 'package:finalprojectv1/constant.dart';
 import 'package:flutter/material.dart';
 
 class ThemeHelper {
-  static Color primaryColor = Color(0xff6758C0);
+  static Color primaryColor = kPrimaryColor;
   static Color accentColor = Color(0xff20aebe);
   static Color shadowColor = Color(0xffa2a6af);
 
@@ -9,7 +10,8 @@ class ThemeHelper {
     return ThemeData(
       fontFamily: 'Baloo',
       primarySwatch: Colors.deepPurple,
-      colorScheme: ColorScheme.light(primary: Colors.deepPurple, secondary: Colors.teal),
+      colorScheme:
+          ColorScheme.light(primary: Colors.deepPurple, secondary: Colors.teal),
       textTheme: TextTheme(
           headline3: TextStyle(
             color: accentColor,
@@ -25,11 +27,13 @@ class ThemeHelper {
   static BoxDecoration fullScreenBgBoxDecoration(
       {String backgroundAssetImage = "assets/images/Common.bg.png"}) {
     return BoxDecoration(
-      image: DecorationImage(image: AssetImage(backgroundAssetImage), fit: BoxFit.cover),
+      image: DecorationImage(
+          image: AssetImage(backgroundAssetImage), fit: BoxFit.cover),
     );
   }
 
   static roundBoxDeco({Color color = Colors.white, double radius = 15}) {
-    return BoxDecoration(color: color, borderRadius: BorderRadius.all(Radius.circular(radius)));
+    return BoxDecoration(
+        color: color, borderRadius: BorderRadius.all(Radius.circular(radius)));
   }
 }

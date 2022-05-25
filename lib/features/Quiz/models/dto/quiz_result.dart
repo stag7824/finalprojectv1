@@ -1,4 +1,4 @@
-import 'package:finalprojectv1/screens/Quiz/models/quiz.dart';
+import '../quiz.dart';
 
 class QuizResult {
   Quiz quiz;

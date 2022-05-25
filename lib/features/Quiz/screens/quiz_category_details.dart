@@ -1,8 +1,8 @@
-import 'package:finalprojectv1/Screens/Quiz/common/theme_helper.dart';
-import 'package:finalprojectv1/Screens/Quiz/models/category.dart';
-import 'package:finalprojectv1/Screens/Quiz/models/quiz.dart';
-import 'package:finalprojectv1/Screens/Quiz/stores/quiz_store.dart';
 import 'package:flutter/material.dart';
+import '../common/theme_helper.dart';
+import '../models/category.dart';
+import '../models/quiz.dart';
+import '../stores/quiz_store.dart';
 
 class QuizCategoryDetailsScreen extends StatefulWidget {
   static const routeName = '/categoryDetails';

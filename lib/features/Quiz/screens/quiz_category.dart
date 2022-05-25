@@ -1,9 +1,11 @@
 import 'dart:core';
-import 'package:finalprojectv1/Screens/Quiz/common/theme_helper.dart';
-import 'package:finalprojectv1/Screens/Quiz/models/category.dart';
-import 'package:finalprojectv1/Screens/Quiz/stores/quiz_store.dart';
-import 'package:finalprojectv1/screens/Quiz/quiz_category_details.dart';
+
+import 'package:finalprojectv1/Features/Quiz/screens/quiz_category_details.dart';
 import 'package:flutter/material.dart';
+
+import '../common/theme_helper.dart';
+import '../models/category.dart';
+import '../stores/quiz_store.dart';
 
 class QuizCategoryScreen extends StatefulWidget {
   static const routeName = '/quizCategory';
@@ -28,20 +30,27 @@ class _QuizCategoryScreenState extends State<QuizCategoryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
-          padding: EdgeInsets.only(left: 10, right: 10),
-          alignment: Alignment.center,
-          decoration: ThemeHelper.fullScreenBgBoxDecoration(),
-          child: Column(
-            children: [
-              screenHeader(),
-              Expanded(
-                child: categoryListView(categoryList),
-              ),
-            ],
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Quizzes"),
+        automaticallyImplyLeading: true,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back)),
+      ),
+      body: Container(
+        padding: const EdgeInsets.only(left: 10, right: 10),
+        alignment: Alignment.center,
+        decoration: ThemeHelper.fullScreenBgBoxDecoration(),
+        child: Column(
+          children: [
+            // screenHeader(),
+            Expanded(
+              child: categoryListView(categoryList),
+            ),
+          ],
         ),
       ),
     );
@@ -49,15 +58,18 @@ class _QuizCategoryScreenState extends State<QuizCategoryScreen> {
 
   Widget screenHeader() {
     return Container(
-      margin: EdgeInsets.only(top: 10, bottom: 10),
+      margin: const EdgeInsets.only(top: 10, bottom: 10),
       alignment: Alignment.centerLeft,
       child: Row(
         children: [
-          ElevatedButton(
-            onPressed: () {
+          GestureDetector(
+            child: const Image(
+              image: AssetImage("assets/icons/back.png"),
+              width: 40,
+            ),
+            onTap: () {
               Navigator.pop(context);
             },
-            child: Text("Back"),
           ),
           Text(
             "Quiz Categories",
@@ -92,10 +104,10 @@ class _QuizCategoryScreenState extends State<QuizCategoryScreen> {
     return Container(
       width: 160,
       alignment: Alignment.center,
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.all(10),
+      decoration: const BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(15))),
+          borderRadius: const BorderRadius.all(Radius.circular(15))),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,

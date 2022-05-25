@@ -1,11 +1,12 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:finalprojectv1/Screens/Quiz/common/json_util.dart';
-import 'package:finalprojectv1/Screens/Quiz/models/category.dart';
-import 'package:finalprojectv1/Screens/Quiz/models/quiz.dart';
-import 'package:finalprojectv1/Screens/Quiz/models/quiz_history.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../common/json_util.dart';
+import '../models/category.dart';
+import '../models/quiz.dart';
+import '../models/quiz_history.dart';
 
 class QuizStore {
   static SharedPreferences? prefs;
