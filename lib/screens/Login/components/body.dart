@@ -2,6 +2,7 @@ import 'package:finalprojectv1/components/rounded_button.dart';
 import 'package:finalprojectv1/components/rounded_input_field.dart';
 import 'package:finalprojectv1/components/rounded_password_field.dart';
 import 'package:finalprojectv1/screens/Login/components/background.dart';
+import 'package:finalprojectv1/screens/Quiz/quiz_category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -38,7 +39,14 @@ class Body extends StatelessWidget {
             ),
             RoundedButton(
               text: "LOGIN",
-              press: () {},
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => QuizCategoryScreen(),
+                  ),
+                );
+              },
             ),
           ],
         ),

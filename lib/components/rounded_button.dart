@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
-  final Function press;
+  final VoidCallback press;
   final Color color, textColor;
-  const RoundedButton({
+  RoundedButton({
     Key? key,
     required this.text,
     required this.press,
@@ -26,12 +26,11 @@ class RoundedButton extends StatelessWidget {
     );
   }
 
-  //Used:ElevatedButton as FlatButton is deprecated.
   //Here we have to apply customizations to Button by inheriting the styleFrom
 
   Widget newElevatedButton() {
     return ElevatedButton(
-      onPressed: null,
+      onPressed: press,
       style: ElevatedButton.styleFrom(
           primary: color,
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
