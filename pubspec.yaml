@@ -17,6 +17,11 @@ dependencies:
   flutter_auth: ^0.0.1
   shared_preferences: ^2.0.15
   path_provider: ^2.0.10
+  auto_size_text: any
+  carousel_slider: any
+  sqflite: any
+  flutter_riverpod: any
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:

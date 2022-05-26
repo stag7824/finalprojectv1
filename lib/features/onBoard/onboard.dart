@@ -97,7 +97,7 @@ class _OnBoardState extends State<OnBoard> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(screens[index].img),
-                  Container(
+                  SizedBox(
                     height: 10.0,
                     child: ListView.builder(
                       itemCount: screens.length,
