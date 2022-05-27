@@ -22,6 +22,8 @@ dependencies:
   sqflite: any
   flutter_riverpod: any
   get: ^4.6.5
+  http: ^0.13.4
+  provider: ^6.0.3
 
 dev_dependencies:
   flutter_test:

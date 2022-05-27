@@ -1,7 +1,9 @@
 import 'package:finalprojectv1/features/Login/loginscreen.dart';
+import 'package:finalprojectv1/features/providers/courses_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Features/onBoard/onboard.dart';
@@ -27,14 +29,19 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // primarySwatch: Colors.purple,
-        primarySwatch: Colors.purple,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => CoursesProvider())
+      ],
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          // primarySwatch: Colors.purple,
+          primarySwatch: Colors.purple,
+        ),
+        home: isviewed != 0 ? OnBoard() : const LoginScreen(),
       ),
-      home: isviewed != 0 ? OnBoard() : const LoginScreen(),
     );
   }
 }
